@@ -6,8 +6,23 @@ public class Player {
     private int age;
 
     public Player(String name, String email, boolean white, int rank, int age) {
+        if(name == null || name.isBlank() || name.isEmpty()){
+            throw new IllegalArgumentException("The name should not be empty");
+        }
+        else {
+            this.name = name;
+        }
         this.name = name;
+        if(email == null || email.isEmpty() || email.isBlank()){
+            throw new IllegalArgumentException("The email should not be empty");
+        }
+        if(!email.contains("@") || !email.contains(".")){
+            throw new IllegalArgumentException("Invalid email");
+        } else {
+            this.email = email;
+        }
         this.email = email;
+
         this.white = white;
         this.rank = rank;
         this.age = age;
@@ -28,6 +43,13 @@ public class Player {
     }
     public int getAge(){
         return age;
+    }
+
+    public void setRank(int rank){
+        if (rank< 100 || rank > 3000){
+            throw new IllegalArgumentException("The rank should be in range of 100 and 3000");
+        }
+        this.rank = rank;
     }
 
     @Override
