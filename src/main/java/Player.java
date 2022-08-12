@@ -52,6 +52,10 @@ public class Player {
         this.rank = rank;
     }
 
+    public void movePiece(Piece piece, Spot spot){
+        piece.setSpot(spot);
+    }
+
     @Override
     public String toString() {
         return "Player{" +
